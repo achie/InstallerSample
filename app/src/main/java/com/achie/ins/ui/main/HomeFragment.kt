@@ -5,8 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.achie.ins.R
+import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
 
@@ -28,5 +30,8 @@ class HomeFragment : Fragment() {
 
     private fun setupViewModel() {
         viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
+        viewModel.installerMessageLD.observe(
+            requireActivity(), Observer { installerMessageTv.text = it })
+        viewModel.fetchInstallerLocation(requireContext())
     }
 }
