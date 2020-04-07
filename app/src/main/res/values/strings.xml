@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">App Source Sample</string>
+    <string name="installer_message_prefix">App is installed from %1$s</string>
 </resources>
